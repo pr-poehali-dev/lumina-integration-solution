@@ -1,6 +1,7 @@
 import { TrendingDown, Lock, Sparkles, ShieldCheck, Wallet, BarChart2, Plus, Minus, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import Icon from "@/components/ui/icon"
 
 interface FAQ {
@@ -9,6 +10,7 @@ interface FAQ {
 }
 
 const Index = () => {
+  const navigate = useNavigate()
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   const toggleFaq = (index: number) => {
@@ -81,7 +83,7 @@ const Index = () => {
             >
               Войти
             </a>
-            <Button className="bg-white text-black hover:bg-white/90 rounded-full px-6">Начать бесплатно</Button>
+            <Button onClick={() => navigate("/app")} className="bg-white text-black hover:bg-white/90 rounded-full px-6">Начать бесплатно</Button>
           </div>
         </nav>
 
@@ -102,7 +104,7 @@ const Index = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
-            <Button size="lg" className="bg-white text-black hover:bg-white/90 rounded-full px-8 py-4 text-lg">
+            <Button size="lg" onClick={() => navigate("/app")} className="bg-white text-black hover:bg-white/90 rounded-full px-8 py-4 text-lg">
               Начать вести учёт
             </Button>
             <Button
