@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react"
+import { useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
 
@@ -51,6 +52,7 @@ const formatDate = (s: string) =>
 export default function Dashboard() {
   const [expenses, setExpenses] = useState<Expense[]>(INITIAL_EXPENSES)
   const [showForm, setShowForm] = useState(false)
+  const navigate = useNavigate()
   const [filterCategory, setFilterCategory] = useState<Category | "Все">("Все")
   const [form, setForm] = useState({ title: "", amount: "", category: "Еда" as Category, date: new Date().toISOString().slice(0, 10) })
 
